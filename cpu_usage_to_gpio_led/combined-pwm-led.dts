@@ -1,0 +1,27 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+
+            pwm_gpio17: pwm-gpio17 {
+                compatible = "pwm-gpio";
+                gpios = <&gpio 17 0>;
+                #pwm-cells = <2>;
+                status = "okay";
+            };
+
+            cpu_led: cpu-led {
+                compatible = "my-cpu-led";
+                pwms = <&pwm_gpio17 0 1000000>;
+                pwm-names = "led";
+                status = "okay";
+            };
+
+        };
+    };
+};

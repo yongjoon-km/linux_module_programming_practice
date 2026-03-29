@@ -55,3 +55,4 @@ sudo rmmod main.ko  # unload the module
 ```
 
 ## Reference
+- https://github.com/devicetree-org/devicetree-specification/blob/main/source/chapter2-devicetree-basics.rst
