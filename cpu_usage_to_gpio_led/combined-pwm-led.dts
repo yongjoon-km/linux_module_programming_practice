@@ -14,12 +14,35 @@
                 #pwm-cells = <2>;
                 status = "okay";
             };
-
-            cpu_led: cpu-led {
-                compatible = "my-cpu-led";
-                pwms = <&pwm_gpio17 0 1000000>;
-                pwm-names = "led";
+            pwm_gpio18: pwm-gpio18 {
+                compatible = "pwm-gpio";
+                gpios = <&gpio 18 0>;
+                #pwm-cells = <2>;
                 status = "okay";
+            };
+            pwm_gpio22: pwm-gpio22 {
+                compatible = "pwm-gpio";
+                gpios = <&gpio 22 0>;
+                #pwm-cells = <2>;
+                status = "okay";
+            };
+            pwm_gpio23: pwm-gpio23 {
+                compatible = "pwm-gpio";
+                gpios = <&gpio 23 0>;
+                #pwm-cells = <2>;
+                status = "okay";
+            };
+
+            cpu-leds {
+                compatible = "my-cpu-led";
+                status = "okay";
+
+                pwms = <&pwm_gpio17 0 1000000>,
+                       <&pwm_gpio18 0 1000000>,
+                       <&pwm_gpio22 0 1000000>,
+                       <&pwm_gpio23 0 1000000>;
+
+                pwm-names = "led0", "led1", "led2", "led3";
             };
 
         };
